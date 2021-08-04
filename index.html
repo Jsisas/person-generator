@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Isikukood: <span id="idcode"></span></p>
+<p>Pangakonto: <span id="iban"></span></p>
+<p>Telefon: <span id="phone"></span></p>
+</body>
+<script src="js/isikukood.js"></script>
+<script>
+    var validIk = Isikukood.generate();
+    document.getElementById('idcode').innerText = validIk;
+</script>
+
+<script src="js/iban.js"></script>
+<script>
+    IBAN.generate('EE', getBankCode(), getAccountNumber()).success(function (iban) {
+        document.getElementById('iban').innerText = iban.iban
+    })
+        .error(function (error) {
+            console.log(error)
+        });
+
+    function getAccountNumber() {
+        var accountNumber = Math.round(Math.random() * 100000000000000).toString();
+
+        if (accountNumber.length !== 14) {
+            accountNumber = getAccountNumber();
+        }
+
+        return accountNumber;
+    }
+
+    function getBankCode() {
+        var bankcode = Math.round(Math.random() * 100).toString()
+
+        if (bankcode.length !== 2) {
+            bankcode = getBankCode();
+        }
+
+        return bankcode;
+    }
+
+    function getPhone() {
+        var phone = Math.round(Math.random() * 100000000).toString()
+
+        if (phone.length !== 8) {
+            phone = getBankCode();
+        }
+
+        return "+372" + phone;
+    }
+</script>
+
+<script>
+    var validIk = getPhone();
+    document.getElementById('phone').innerText = validIk;
+    function getPhone() {
+        var phone = Math.round(Math.random() * 100000000).toString()
+
+        if (phone.length !== 8) {
+            phone = getBankCode();
+        }
+
+        return "+372" + phone;
+    }
+</script>
+</html>
