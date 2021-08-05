@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "iban-constructor": "^1.2.3",
+    "iban-generator": "0.0.1",
+    "ibankit": "^1.0.0",
     "isikukood": "^1.2.3",
     "unique-names-generator": "^4.6.0"
   }
