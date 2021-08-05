@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+<p>Eesnimi: <span id="fname"></span></p>
+<p>Perenimi: <span id="lname"></span></p>
+<p>Email: <span id="email"></span></p>
 <p>Isikukood: <span id="idcode"></span></p>
 <p>Pangakonto: <span id="iban"></span></p>
 <p>Telefon: <span id="phone"></span></p>
@@ -57,5 +60,14 @@
 
         return "+3725" + phone;
     }
+</script>
+
+<script src="https://rawgit.com/icebob/fakerator/master/dist/fakerator.js"></script>
+<script>
+    var fakerator = Fakerator();
+    var user = fakerator.entity.user();
+    document.getElementById('fname').innerText = user.firstName;
+    document.getElementById('lname').innerText = user.lastName;
+    document.getElementById('email').innerText = user.email;
 </script>
 </html>
