@@ -43,29 +43,19 @@
 
         return bankcode;
     }
-
-    function getPhone() {
-        var phone = Math.round(Math.random() * 100000000).toString()
-
-        if (phone.length !== 8) {
-            phone = getBankCode();
-        }
-
-        return "+372" + phone;
-    }
 </script>
 
 <script>
     var validIk = getPhone();
     document.getElementById('phone').innerText = validIk;
     function getPhone() {
-        var phone = Math.round(Math.random() * 100000000).toString()
+        var phone = Math.round(Math.random() * 10000000).toString()
 
-        if (phone.length !== 8) {
+        if (phone.length !== 7) {
             phone = getBankCode();
         }
 
-        return "+372" + phone;
+        return "+3725" + phone;
     }
 </script>
 </html>
