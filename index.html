@@ -15,8 +15,26 @@
 <script src="js/isikukood.js"></script>
 <script src="js/chance.js"></script>
 <script>
-    var validIk = Isikukood.generate();
+    var currentYear = new Date().getFullYear()
+    var endYear = currentYear - 19;
+    var startYear = currentYear - 56;
+    var randomYear = getRandomInt(startYear, endYear);
+    console.log(startYear)
+    console.log(endYear)
+    console.log(randomYear)
+    var validIk = Isikukood.generate({
+        // gender: "male",
+        // birthDay: 23,
+        // birthMonth: 3,
+        birthYear: randomYear
+    });
     document.getElementById('idcode').innerText = validIk;
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 </script>
 
 <script src="./js/iban-generator.js"></script>
